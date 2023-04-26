@@ -1,19 +1,18 @@
 import { useState, useEffect } from "react";
-import Video from './Video';
+import Video from "./Video";
 
 function App() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
-      .then((data) => setData(data.message));
-  });
+      .then((data) => setData(data));
+  }, []);
 
   return (
     <div>
-        <p>{data}</p>
-        <Video />
+      <Video data={data} />
     </div>
   );
 }
