@@ -9,13 +9,6 @@ const url = require("url");
 const videoData = fs.readFileSync(`${__dirname}/video-data.json`, "utf-8");
 const videoDataObj = JSON.parse(videoData);
 
-// const server = http.createServer((req, res) => {
-//   const pathName = req.url;
-//   if (pathName === "/api") {
-
-//   }
-// });
-
 app.get("/api", (req, res) => {
   res.json(videoDataObj);
 });

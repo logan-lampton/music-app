@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Video from "./Video";
+import AddVideo from './AddVideo'
 
 function App() {
   const [data, setData] = useState([]);
@@ -12,6 +13,7 @@ function App() {
 
   return (
     <div>
+      <AddVideo />
       <Video data={data} />
     </div>
   );

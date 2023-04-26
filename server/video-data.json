@@ -1,16 +1,14 @@
 [
   {
     "id": 1,
-    "name": "Logan",
-    "age": 34,
-    "coolness": "off the charts",
-    "src": "https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+    "name": "Boring YouTube Video",
+    "src": "https://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com",
+    "rating": ""
   },
   {
     "id": 2,
-    "name": "Rae",
-    "age": 33,
-    "coolness": "crazy cool",
-    "src": "https://www.youtube.com/embed/ormQQG2UhtQ"
+    "name": "Dragonball Durag",
+    "src": "https://www.youtube.com/embed/ormQQG2UhtQ",
+    "rating": ""
   }
 ]
