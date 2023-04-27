@@ -17,7 +17,10 @@ function AddVideo() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+    const { name, link } = values;
+    if (!name || !link) {
+      alert("Please make sure to add a name and link for the song");
+    }
   };
 
   return (
