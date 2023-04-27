@@ -9,7 +9,7 @@ function App() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get("/api").then((response) => setData(response.data));
+    axios.get("/api/videos").then((response) => setData(response.data));
   }, []);
 
   return (
