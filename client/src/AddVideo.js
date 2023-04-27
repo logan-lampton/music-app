@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 const initialState = {
   name: "",
@@ -7,6 +8,7 @@ const initialState = {
 
 function AddVideo() {
   const [values, setValues] = useState(initialState);
+  const [data, setData] = useState([]);
 
   const handleChange = (e) => {
     const inputName = e.target.name;
@@ -21,6 +23,22 @@ function AddVideo() {
     if (!name || !link) {
       alert("Please make sure to add a name and link for the song");
     }
+    axios
+      .post("/api/videos", {
+        name: `${values.name}`,
+        src: `${values.link}`,
+      })
+      .then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    //   .then(
+    //     axios.get("/api/videos").then((response) => setData(response.data))
+    //   );
   };
 
   return (
@@ -38,7 +56,7 @@ function AddVideo() {
         <input
           type='text'
           name='link'
-          value={values.password}
+          value={values.link}
           onChange={handleChange}
         />
       </div>
