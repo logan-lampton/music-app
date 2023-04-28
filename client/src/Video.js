@@ -44,8 +44,10 @@ function Video({ data }) {
       <div>
         <div className='video-container'>
           {allVideos[currentVideo]}
-          <button onClick={prevVideo}>Prev Video</button>
-          <button onClick={nextVideo}>Next Video</button>
+          <div className='video-buttons'>
+            <button onClick={prevVideo}>Prev Video</button>
+            <button onClick={nextVideo}>Next Video</button>
+          </div>
         </div>
       </div>
     </>
