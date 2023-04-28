@@ -16,6 +16,19 @@ app.get("/api/videos", (req, res) => {
   res.json(videoDataObj);
 });
 
+app.get("/api/videos/:id", (req, res) => {
+  const id = req.params.id * 1;
+  let video = videoDataObj.find((el) => {
+    return el.id === id;
+  });
+  res.status(200).json({
+    status: "success",
+    data: {
+      video: video,
+    },
+  });
+});
+
 app.post("/api/videos", (req, res) => {
   const newId = videoDataObj[videoDataObj.length - 1].id + 1;
   const newVideo = Object.assign({ id: newId }, req.body);
@@ -35,17 +48,44 @@ app.post("/api/videos", (req, res) => {
   );
 });
 
+// app.patch("api/videos/:id", (req, res) => {
+//   const video = videoDataObj.find(
+//     (video) => video.id === parseInt(req.params.id)
+//   );
+//   fs.writeFile(`${__dirname}/video-data.json`, JSON.stringify(video));
+// });
+
+// app.patch("/api/videos/:id", (req, res) => {
+//   let id = req.params.id;
+//   let rating = req.body;
+
+//   videoDataObj
+//     .findByIdAndUpdate(id, { $set: { rating: rating } }, { new: true })
+//     .then(res.send("Video review updated by id through PATCH"));
+// });
+
 app.patch("api/videos/:id", (req, res) => {
-  const video = videoDataObj.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true,
-  });
-  res.status(200).json({
-    status: "success",
-    data: {
-      video: video,
-    },
-  });
+  let id = req.params.id * 1;
+  let videoToUpdate = videoDataObj.find((video) => video.id === id);
+  let index = videoDataObj.indexOf(videoToUpdate);
+
+  // updates the videoToUpdate object to be the same as the original video + the changes in the req body
+  Object.assign(videoToUpdate, req.body);
+
+  videoDataObj[index] = videoToUpdate;
+
+  fs.writeFile(
+    `${__dirname}/video-data.json`,
+    JSON.stringify(videoDataObj),
+    (err) => {
+      res.status(200).json({
+        status: "success",
+        data: {
+          videoToUpdate,
+        },
+      });
+    }
+  );
 });
 
 app.listen(PORT, () => {
