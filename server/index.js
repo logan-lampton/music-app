@@ -21,6 +21,12 @@ app.get("/api/videos/:id", (req, res) => {
   let video = videoDataObj.find((el) => {
     return el.id === id;
   });
+  if (!video) {
+    return res.status(404).json({
+      status: "fail",
+      message: `Video with ID ${id} is not found`,
+    });
+  }
   res.status(200).json({
     status: "success",
     data: {
