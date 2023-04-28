@@ -7,12 +7,13 @@ function Video({ data }) {
   const [currentVideo, setCurrentVideo] = useState(0);
 
   const allVideos = data.map((video) => {
-    const { id, name, src } = video;
+    const { id, artist, title, link } = video;
     return (
       <div key={id}>
-        <p>{name}</p>
+        <h2>{artist}</h2>
+        <h3>{title}</h3>
         <AspectRatio ratio='16/9' style={{ maxWidth: "1000px" }}>
-          <iframe src={src} allowFullScreen />
+          <iframe src={link} allowFullScreen />
         </AspectRatio>
       </div>
     );
@@ -42,7 +43,6 @@ function Video({ data }) {
     <>
       <div>
         <div className='video-container'>
-          <h2>Video</h2>
           {allVideos[currentVideo]}
           <button onClick={prevVideo}>Prev Video</button>
           <button onClick={nextVideo}>Next Video</button>

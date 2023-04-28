@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const initialState = {
-  name: "",
+  artist: "",
+  title: "",
   link: "",
 };
 
 function AddVideo() {
   const [values, setValues] = useState(initialState);
-  const [data, setData] = useState([]);
+  //   const [data, setData] = useState([]);
 
   const handleChange = (e) => {
     const inputName = e.target.name;
@@ -19,14 +20,15 @@ function AddVideo() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const { name, link } = values;
-    if (!name || !link) {
-      alert("Please make sure to add a name and link for the song");
+    const { artist, title, link } = values;
+    if (!artist || !title || !link) {
+      alert("Please make sure to add an artist, title, and link for the song");
     }
     axios
       .post("/api/videos", {
-        name: `${values.name}`,
-        src: `${values.link}`,
+        artist: `${values.artist}`,
+        title: `${values.title}`,
+        link: `${values.link}`,
       })
       .then(
         (response) => {
@@ -35,21 +37,27 @@ function AddVideo() {
         (error) => {
           console.log(error);
         }
-      );
-    //   .then(
-    //     axios.get("/api/videos").then((response) => setData(response.data))
-    //   );
+      )
+      .then(setValues(initialState))
+      .then(alert(`Thanks for submitting your song from ${artist}. Hope it gets selected!`));
   };
 
   return (
     <form onSubmit={onSubmit}>
       <h2>Add Song</h2>
       <div>
-        <label>Name:</label>
+        <label>Artist:</label>
         <input
           type='text'
-          name='name'
-          value={values.name}
+          name='artist'
+          value={values.artist}
+          onChange={handleChange}
+        />
+        <label>Title:</label>
+        <input
+          type='text'
+          name='title'
+          value={values.title}
           onChange={handleChange}
         />
         <label>Link:</label>
