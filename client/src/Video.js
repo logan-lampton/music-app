@@ -1,5 +1,6 @@
 import { AspectRatio } from "react-aspect-ratio";
 import { useState, useEffect } from "react";
+import Rating from './Rating';
 
 // MAKE VIDEOS PLAY AUTOMATICALLY
 
@@ -15,6 +16,7 @@ function Video({ data }) {
         <AspectRatio ratio='16/9' style={{ maxWidth: "1000px" }}>
           <iframe src={link} allowFullScreen />
         </AspectRatio>
+        <Rating id={id}/>
       </div>
     );
   });

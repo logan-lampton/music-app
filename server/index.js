@@ -35,6 +35,19 @@ app.post("/api/videos", (req, res) => {
   );
 });
 
+app.patch("api/videos/:id", (req, res) => {
+  const video = videoDataObj.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true,
+  });
+  res.status(200).json({
+    status: "success",
+    data: {
+      video: video,
+    },
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });

@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Video from "./Video";
 import AddVideo from "./AddVideo";
-import Rating from './Rating';
 
 function App() {
   const [data, setData] = useState([]);
@@ -17,7 +16,6 @@ function App() {
     <div>
       <AddVideo />
       <Video data={data} />
-      <Rating />
       {/* <ToastContainer /> */}
     </div>
   );
