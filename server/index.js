@@ -47,7 +47,7 @@ app.post("/api/videos", (req, res) => {
       res.status(201).json({
         status: "success",
         data: {
-          newVideo,
+          video: newVideo,
         },
       });
     }
@@ -70,24 +70,38 @@ app.post("/api/videos", (req, res) => {
 //     .then(res.send("Video review updated by id through PATCH"));
 // });
 
-app.patch("api/videos/:id", (req, res) => {
-  let id = req.params.id * 1;
-  let videoToUpdate = videoDataObj.find((video) => video.id === id);
-  let index = videoDataObj.indexOf(videoToUpdate);
+app.patch("/api/videos/:id", (req, res) => {
+  const id = req.params.id * 1;
+  const videoToUpdate = videoDataObj.find((el) => el.id === id);
 
-  // updates the videoToUpdate object to be the same as the original video + the changes in the req body
+  if (!videoToUpdate) {
+    return res.status(404).json({
+      status: "error",
+      message: `Video with ID ${id} not found`,
+    });
+  }
+
   Object.assign(videoToUpdate, req.body);
+  console.log(videoToUpdate);
 
+  const index = videoDataObj.findIndex((el) => el.id === id);
   videoDataObj[index] = videoToUpdate;
 
   fs.writeFile(
     `${__dirname}/video-data.json`,
     JSON.stringify(videoDataObj),
     (err) => {
+      if (err) {
+        return res.status(500).json({
+          status: "error",
+          message: "Failed to update video",
+        });
+      }
+
       res.status(200).json({
         status: "success",
         data: {
-          videoToUpdate,
+          video: videoToUpdate,
         },
       });
     }
