@@ -8,7 +8,7 @@ function Video({ data }) {
   const [currentVideo, setCurrentVideo] = useState(0);
 
   const allVideos = data.map((video) => {
-    const { id, artist, title, link } = video;
+    const { id, artist, title, link, rating } = video;
     return (
       <div key={id}>
         <h2>{artist}</h2>
@@ -16,7 +16,7 @@ function Video({ data }) {
         <AspectRatio ratio='16/9' style={{ maxWidth: "1000px" }}>
           <iframe src={link} allowFullScreen />
         </AspectRatio>
-        <Rating id={id}/>
+        <Rating id={id} rating={rating}/>
       </div>
     );
   });

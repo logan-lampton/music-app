@@ -26,6 +26,11 @@ body {
   justify-content: center;
 }
 
+.approval {
+  display: flex;
+  justify-content: center;
+}
+
 .yes {
   margin-left: 10px;
   font-size: 20px;
