@@ -4,7 +4,7 @@ import axios from "axios";
 // Update the database existing entry with a patch request
 // Display the rating on the screen after it's given
 
-function Rating({ id, rating }) {
+function Rating({ id, rating, setData }) {
   const handleYeah = () => {
     axios
       .patch(`/api/videos/${id}`, {
@@ -12,7 +12,8 @@ function Rating({ id, rating }) {
       })
       .then(
         (response) => {
-          console.log(response);
+          console.log("This is my response:", response);
+          axios.get("/api/videos").then((response) => setData(response.data));
         },
         (error) => {
           console.log(error);
@@ -28,6 +29,7 @@ function Rating({ id, rating }) {
       .then(
         (response) => {
           console.log(response);
+          axios.get("/api/videos").then((response) => setData(response.data));
         },
         (error) => {
           console.log(error);

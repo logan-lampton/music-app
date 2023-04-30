@@ -7,7 +7,7 @@ const initialState = {
   link: "",
 };
 
-function AddVideo() {
+function AddVideo({ setData }) {
   const [values, setValues] = useState(initialState);
   //   const [data, setData] = useState([]);
 
@@ -33,13 +33,18 @@ function AddVideo() {
       .then(
         (response) => {
           console.log(response);
+          axios.get("/api/videos").then((response) => setData(response.data));
         },
         (error) => {
           console.log(error);
         }
       )
       .then(setValues(initialState))
-      .then(alert(`Thanks for submitting your song from ${artist}. Hope it gets selected!`));
+      .then(
+        alert(
+          `Thanks for submitting your song from ${artist}. Hope it gets selected!`
+        )
+      );
   };
 
   return (

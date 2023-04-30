@@ -1,12 +1,13 @@
 import { AspectRatio } from "react-aspect-ratio";
 import { useState, useEffect } from "react";
-import Rating from './Rating';
+import Rating from "./Rating";
 
 // MAKE VIDEOS PLAY AUTOMATICALLY
 
-function Video({ data }) {
+function Video({ data, setData }) {
   const [currentVideo, setCurrentVideo] = useState(0);
 
+  console.log("This is my data:", data);
   const allVideos = data.map((video) => {
     const { id, artist, title, link, rating } = video;
     return (
@@ -16,7 +17,7 @@ function Video({ data }) {
         <AspectRatio ratio='16/9' style={{ maxWidth: "1000px" }}>
           <iframe src={link} allowFullScreen />
         </AspectRatio>
-        <Rating id={id} rating={rating}/>
+        <Rating id={id} rating={rating} setData={setData} />
       </div>
     );
   });
@@ -44,12 +45,10 @@ function Video({ data }) {
   return (
     <>
       <div>
-        <div className='video-container'>
-          {allVideos[currentVideo]}
-          <div className='video-buttons'>
-            <button onClick={prevVideo}>Prev Video</button>
-            <button onClick={nextVideo}>Next Video</button>
-          </div>
+        <div className='video-container'>{allVideos[currentVideo]}</div>
+        <div className='video-buttons'>
+          <button onClick={prevVideo}>Prev Video</button>
+          <button onClick={nextVideo}>Next Video</button>
         </div>
       </div>
     </>

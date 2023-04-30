@@ -14,8 +14,8 @@ function App() {
 
   return (
     <div>
-      <AddVideo />
-      <Video data={data} />
+      <AddVideo setData={setData} />
+      <Video data={data} setData={setData} />
       {/* <ToastContainer /> */}
     </div>
   );
