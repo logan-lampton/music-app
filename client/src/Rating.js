@@ -8,7 +8,7 @@ function Rating({ id, rating }) {
   const handleYeah = () => {
     axios
       .patch(`/api/videos/${id}`, {
-        rating: "Not at my wedding!!!",
+        rating: "Let's add to the playlist!",
       })
       .then(
         (response) => {
@@ -23,7 +23,7 @@ function Rating({ id, rating }) {
   const handleNo = () => {
     axios
       .patch(`/api/videos/${id}`, {
-        rating: "Let's add to the playlist!",
+        rating: "Not at my wedding!!!",
       })
       .then(
         (response) => {
