@@ -26,6 +26,20 @@ body {
   justify-content: center;
 }
 
+.yes {
+  margin-left: 10px;
+  font-size: 20px;
+  color: green;
+  cursor: pointer;
+}
+
+.no {
+  margin-left: 10px;
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+}
+
 /* iframe {
   position: absolute;
   top: 0;

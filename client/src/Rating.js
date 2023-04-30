@@ -39,7 +39,7 @@ function Rating({ id }) {
     <div className='rating'>
       <h2>Worth Playing at our wedding?</h2>
       <div>
-        <p className='yeah' onClick={handleYeah}>
+        <p className='yes' onClick={handleYeah}>
           Heck yeah!
         </p>
         <p className='no' onClick={handleNo}>
