@@ -101,13 +101,28 @@ function Rating({ id, rating, setData }) {
                 style={{ fontWeight: "bold", backgroundColor: "#00e676" }}
               >
                 <h2>THE BRIDE HAS SPOKEN!</h2> <h3>{rating}</h3>
+                <Button
+                  variant='contained'
+                  color='success'
+                  style={{ position: "absolute", top: "20%", right: "2%" }}
+                >
+                  Remove rating
+                </Button>
               </Alert>
             ) : (
               <Alert
                 severity='error'
                 style={{ fontWeight: "bold", backgroundColor: "#ff1744" }}
               >
-                <h2>THE BRIDE HAS SPOKEN!</h2> <h3>{rating}</h3>
+                <h2>THE BRIDE HAS SPOKEN!</h2>
+                <h3>{rating}</h3>
+                <Button
+                  variant='contained'
+                  color='error'
+                  style={{ position: "absolute", top: "20%", right: "2%" }}
+                >
+                  Remove rating
+                </Button>
               </Alert>
             )}
           </Stack>

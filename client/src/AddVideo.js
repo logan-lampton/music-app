@@ -70,13 +70,16 @@ function AddVideo({ setData }) {
           <Box
             component='form'
             sx={{
-              "& .MuiTextField-root": { width: "25ch" },
+              "& .MuiTextField-root": {
+                width: "25ch",
+                margin: "5px",
+              },
             }}
             noValidate
             autoComplete='off'
             onSubmit={onSubmit}
           >
-            <div>
+            <div style={{ justifyContent: "space-between" }}>
               <TextField
                 id='outlined-basic'
                 label='Artist'
@@ -102,7 +105,7 @@ function AddVideo({ setData }) {
                 onChange={handleChange}
               />
             </div>
-            <Button variant='contained' style={{ marginBlock: "10px" }}>
+            <Button variant='contained' style={{ margin: "5px" }}>
               Submit
             </Button>
           </Box>
