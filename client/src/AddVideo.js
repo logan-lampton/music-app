@@ -102,7 +102,9 @@ function AddVideo({ setData }) {
                 onChange={handleChange}
               />
             </div>
-            <Button variant='contained'>Submit</Button>
+            <Button variant='contained' style={{ marginBlock: "10px" }}>
+              Submit
+            </Button>
           </Box>
         </AccordionDetails>
       </Accordion>
