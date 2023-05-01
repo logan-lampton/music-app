@@ -1,4 +1,14 @@
 import axios from "axios";
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import Divider from "@mui/material/Divider";
 
 // Submit the rating
 // Update the database existing entry with a patch request
@@ -39,18 +49,79 @@ function Rating({ id, rating, setData }) {
 
   return (
     <>
-      <div className='rating'>
-        <h2>Worth Playing at our wedding?</h2>
+      <Box
+        sx={{
+          width: "100%",
+          bgcolor: "background.paper",
+          component: "nav",
+          marginTop: "30px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <div>
-          <p className='yes' onClick={handleYeah}>
-            Heck yeah!
-          </p>
-          <p className='no' onClick={handleNo}>
-            No way!
-          </p>
+          <Divider />
+          <h2>Worth Playing at our wedding?</h2>
+          <nav>
+            <List>
+              <ListItem disablePadding>
+                <Stack direction='row' spacing={2}>
+                  <Button
+                    variant='contained'
+                    color='success'
+                    className='yes'
+                    onClick={handleYeah}
+                  >
+                    Heck yeah!
+                  </Button>
+                  <Button
+                    variant='outlined'
+                    color='error'
+                    className='no'
+                    onClick={handleNo}
+                  >
+                    No way!
+                  </Button>
+                </Stack>
+              </ListItem>
+            </List>
+          </nav>
         </div>
+      </Box>
+      {/* <div className='rating'>
+        <h2>Worth Playing at our wedding?</h2>
+        <Stack direction='row' spacing={2}>
+          <Button
+            variant='contained'
+            color='success'
+            className='yes'
+            onClick={handleYeah}
+          >
+            Heck yeah!
+          </Button>
+          <Button
+            variant='outlined'
+            color='error'
+            className='no'
+            onClick={handleNo}
+          >
+            No way!
+          </Button>
+        </Stack>
+      </div> */}
+      <div className='approval'>
+        {rating && (
+          <div>
+            <h2>THE BRIDE HAS SPOKEN!</h2>
+            {rating === "Let's add to the playlist!" ? (
+              <h3 style={{ color: "green" }}>{rating}</h3>
+            ) : (
+              <h3 style={{ color: "red" }}>{rating}</h3>
+            )}
+            {/* <h3 style={{ color: "red" }}>{rating}</h3> */}
+          </div>
+        )}
       </div>
-      <div className='approval'>{rating && <h2>{rating}</h2>}</div>
     </>
   );
 }

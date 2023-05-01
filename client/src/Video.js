@@ -6,6 +6,15 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 
 // MAKE VIDEOS PLAY AUTOMATICALLY
+<iframe
+  width='560'
+  height='315'
+  src='https://www.youtube.com/embed/iYYRH4apXDo?controls=0'
+  title='YouTube video player'
+  frameborder='0'
+  allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+  allowfullscreen
+></iframe>;
 
 function Video({ data, setData }) {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -37,7 +46,7 @@ function Video({ data, setData }) {
         <h2>{artist}</h2>
         <h3>{title}</h3>
         <AspectRatio ratio='16/9' style={{ maxWidth: "1000px" }}>
-          <iframe src={link} allowFullScreen />
+          <iframe src={link} allow='autoplay' allowFullScreen />
         </AspectRatio>
         <Stack spacing={2} direction='row' className='video-buttons'>
           <Button variant='contained' onClick={prevVideo}>
