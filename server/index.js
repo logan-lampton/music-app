@@ -54,22 +54,6 @@ app.post("/api/videos", (req, res) => {
   );
 });
 
-// app.patch("api/videos/:id", (req, res) => {
-//   const video = videoDataObj.find(
-//     (video) => video.id === parseInt(req.params.id)
-//   );
-//   fs.writeFile(`${__dirname}/video-data.json`, JSON.stringify(video));
-// });
-
-// app.patch("/api/videos/:id", (req, res) => {
-//   let id = req.params.id;
-//   let rating = req.body;
-
-//   videoDataObj
-//     .findByIdAndUpdate(id, { $set: { rating: rating } }, { new: true })
-//     .then(res.send("Video review updated by id through PATCH"));
-// });
-
 app.patch("/api/videos/:id", (req, res) => {
   const id = req.params.id * 1;
   const videoToUpdate = videoDataObj.find((el) => el.id === id);

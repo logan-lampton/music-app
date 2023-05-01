@@ -5,10 +5,11 @@ import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
+// import ListItemButton from "@mui/material/ListItemButton";
+// import ListItemIcon from "@mui/material/ListItemIcon";
+// import ListItemText from "@mui/material/ListItemText";
 import Divider from "@mui/material/Divider";
+import Alert from "@mui/material/Alert";
 
 // Submit the rating
 // Update the database existing entry with a patch request
@@ -88,38 +89,28 @@ function Rating({ id, rating, setData }) {
           </nav>
         </div>
       </Box>
-      {/* <div className='rating'>
-        <h2>Worth Playing at our wedding?</h2>
-        <Stack direction='row' spacing={2}>
-          <Button
-            variant='contained'
-            color='success'
-            className='yes'
-            onClick={handleYeah}
-          >
-            Heck yeah!
-          </Button>
-          <Button
-            variant='outlined'
-            color='error'
-            className='no'
-            onClick={handleNo}
-          >
-            No way!
-          </Button>
-        </Stack>
-      </div> */}
-      <div className='approval'>
+      <div
+        className='approval'
+        style={{ position: "absolute", top: "20%", left: "0", width: "100%" }}
+      >
         {rating && (
-          <div>
-            <h2>THE BRIDE HAS SPOKEN!</h2>
+          <Stack sx={{ width: "100%" }} spacing={2}>
             {rating === "Let's add to the playlist!" ? (
-              <h3 style={{ color: "green" }}>{rating}</h3>
+              <Alert
+                severity='success'
+                style={{ fontWeight: "bold", backgroundColor: "#00e676" }}
+              >
+                <h2>THE BRIDE HAS SPOKEN!</h2> <h3>{rating}</h3>
+              </Alert>
             ) : (
-              <h3 style={{ color: "red" }}>{rating}</h3>
+              <Alert
+                severity='error'
+                style={{ fontWeight: "bold", backgroundColor: "#ff1744" }}
+              >
+                <h2>THE BRIDE HAS SPOKEN!</h2> <h3>{rating}</h3>
+              </Alert>
             )}
-            {/* <h3 style={{ color: "red" }}>{rating}</h3> */}
-          </div>
+          </Stack>
         )}
       </div>
     </>
