@@ -48,6 +48,22 @@ function Rating({ id, rating, setData }) {
       );
   };
 
+  const handleRemoveReview = () => {
+    axios
+      .patch(`/api/videos/${id}`, {
+        rating: null,
+      })
+      .then(
+        (response) => {
+          console.log("This is my response:", response);
+          axios.get("/api/videos").then((response) => setData(response.data));
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
+
   return (
     <>
       <Box
@@ -105,6 +121,7 @@ function Rating({ id, rating, setData }) {
                   variant='contained'
                   color='success'
                   style={{ position: "absolute", top: "20%", right: "2%" }}
+                  onClick={handleRemoveReview}
                 >
                   Remove rating
                 </Button>
@@ -120,6 +137,7 @@ function Rating({ id, rating, setData }) {
                   variant='contained'
                   color='error'
                   style={{ position: "absolute", top: "20%", right: "2%" }}
+                  onClick={handleRemoveReview}
                 >
                   Remove rating
                 </Button>

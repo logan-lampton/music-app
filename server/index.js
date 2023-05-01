@@ -92,6 +92,45 @@ app.patch("/api/videos/:id", (req, res) => {
   );
 });
 
+// delete reviews via patch
+// app.patch("/api/videos/:id", (req, res) => {
+//   const id = req.params.id * 1;
+//   let video = videoDataObj.find((el) => {
+//     return el.id === id;
+//   });
+//   if (!video) {
+//     return res.status(404).json({
+//       status: "fail",
+//       message: `Video with ID ${id} is not found`,
+//     });
+//   }
+//   Object.assign(videoToUpdate, req.body);
+//   console.log(videoToUpdate);
+
+//   const index = videoDataObj.findIndex((el) => el.id === id);
+//   videoDataObj[index] = videoToUpdate;
+
+//   fs.writeFile(
+//     `${__dirname}/video-data.json`,
+//     JSON.stringify(videoDataObj),
+//     (err) => {
+//       if (err) {
+//         return res.status(500).json({
+//           status: "error",
+//           message: "Failed to update video",
+//         });
+//       }
+
+//       res.status(200).json({
+//         status: "success",
+//         data: {
+//           video: videoToUpdate,
+//         },
+//       });
+//     }
+//   );
+// });
+
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
