@@ -4,6 +4,11 @@ import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const initialState = {
   artist: "",
@@ -53,95 +58,54 @@ function AddVideo({ setData }) {
 
   return (
     <>
-      <Box
-        component='form'
-        sx={{
-          "& .MuiTextField-root": { width: "25ch" },
-        }}
-        noValidate
-        autoComplete='off'
-        onSubmit={onSubmit}
-      >
-        <h2>Add Song</h2>
-        <div>
-          <TextField
-            id='outlined-basic'
-            label='Artist'
-            variant='outlined'
-            name='artist'
-            value={values.artist}
-            onChange={handleChange}
-          />
-          <TextField
-            id='outlined-basic'
-            label='Title'
-            variant='outlined'
-            name='title'
-            value={values.title}
-            onChange={handleChange}
-          />
-          <TextField
-            id='outlined-basic'
-            label='Link'
-            variant='outlined'
-            name='link'
-            value={values.link}
-            onChange={handleChange}
-          />
-          {/* <input
-            type='text'
-            name='artist'
-            value={values.artist}
-            onChange={handleChange}
-          /> */}
-          {/* <label>Title:</label>
-          <input
-            type='text'
-            name='title'
-            value={values.title}
-            onChange={handleChange}
-          /> */}
-          {/* <label>Link:</label>
-          <input
-            type='text'
-            name='link'
-            value={values.link}
-            onChange={handleChange}
-          /> */}
-        </div>
-        {/* <button type='submit'>Submit</button> */}
-        {/* <Stack spacing={2} direction='row'> */}
-        <Button variant='contained'>Submit</Button>
-        {/* </Stack> */}
-      </Box>
-
-      {/* <form onSubmit={onSubmit}>
-        <h2>Add Song</h2>
-        <div>
-          <label>Artist:</label>
-          <input
-            type='text'
-            name='artist'
-            value={values.artist}
-            onChange={handleChange}
-          />
-          <label>Title:</label>
-          <input
-            type='text'
-            name='title'
-            value={values.title}
-            onChange={handleChange}
-          />
-          <label>Link:</label>
-          <input
-            type='text'
-            name='link'
-            value={values.link}
-            onChange={handleChange}
-          />
-        </div>
-        <button type='submit'>Submit</button>
-      </form> */}
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls='panel1a-content'
+          id='panel1a-header'
+        >
+          <h2>Add a Song</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          <Box
+            component='form'
+            sx={{
+              "& .MuiTextField-root": { width: "25ch" },
+            }}
+            noValidate
+            autoComplete='off'
+            onSubmit={onSubmit}
+          >
+            <div>
+              <TextField
+                id='outlined-basic'
+                label='Artist'
+                variant='outlined'
+                name='artist'
+                value={values.artist}
+                onChange={handleChange}
+              />
+              <TextField
+                id='outlined-basic'
+                label='Title'
+                variant='outlined'
+                name='title'
+                value={values.title}
+                onChange={handleChange}
+              />
+              <TextField
+                id='outlined-basic'
+                label='Link'
+                variant='outlined'
+                name='link'
+                value={values.link}
+                onChange={handleChange}
+              />
+            </div>
+            <Button variant='contained'>Submit</Button>
+          </Box>
+        </AccordionDetails>
+      </Accordion>
     </>
   );
 }
