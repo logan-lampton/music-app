@@ -105,9 +105,12 @@ function AddVideo({ setData }) {
                 onChange={handleChange}
               />
             </div>
-            <Button variant='contained' style={{ margin: "5px" }}>
+            <button
+              className='pure-material-button-contained'
+              style={{ margin: "5px" }}
+            >
               Submit
-            </Button>
+            </button>
           </Box>
         </AccordionDetails>
       </Accordion>

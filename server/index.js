@@ -54,6 +54,7 @@ app.post("/api/videos", (req, res) => {
   );
 });
 
+// Add and delete reviews via patch
 app.patch("/api/videos/:id", (req, res) => {
   const id = req.params.id * 1;
   const videoToUpdate = videoDataObj.find((el) => el.id === id);
@@ -92,7 +93,6 @@ app.patch("/api/videos/:id", (req, res) => {
   );
 });
 
-// delete reviews via patch
 // app.patch("/api/videos/:id", (req, res) => {
 //   const id = req.params.id * 1;
 //   let video = videoDataObj.find((el) => {
