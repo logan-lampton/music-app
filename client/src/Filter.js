@@ -1,21 +1,18 @@
 import { useState } from "react";
 
 function Filter({ data }) {
-  const options = ["Filter Songs By Rating", "The Good Stuff", "Rejected"];
+  const options = ["Filter Songs By Rating", "Love Em", "Hate Em"];
   const [myValue, setMyValue] = useState(options[0]);
-  const [filteredSongs, setFilteredSongs] = useState(null);
-
-  //   const positiveSongs = (data) => {
-  //       return data.filter(rating === "Let's add to the playlist!")
-  //   }
+  const [filteredSongs, setFilteredSongs] = useState([]);
 
   const selectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
+    // console.log(rating);
     if (rating === "Let's add to the playlist!") {
       return (
         <div key={id}>
           <p>
-            {artist} - {title}
+            {artist} : {title}
           </p>
         </div>
       );
@@ -24,7 +21,7 @@ function Filter({ data }) {
 
   const rejectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
-    if (rating === "Rejected") {
+    if (rating === "Not at my wedding!!!") {
       return (
         <div key={id}>
           <p>
@@ -35,40 +32,34 @@ function Filter({ data }) {
     }
   });
 
-  const testFilter = () => {
-    if (myValue === "Filter Songs By Rating") {
-      setFilteredSongs(null);
+  const filterSongs = (value) => {
+    if (value === "Filter Songs By Rating") {
+      setFilteredSongs([]);
     }
-    if (myValue === "The Good Stuff") {
+    if (value === "Love Em") {
       setFilteredSongs(selectedSongs);
     }
-    if (myValue === "Rejected") {
+    if (value === "Hate Em") {
       setFilteredSongs(rejectedSongs);
     }
   };
 
   return (
-    // <div>
-    //   <select>
-    //     <option value='blank'>Filter Songs By Rating</option>
-    //     <option value='yes'>The Good Stuff</option>
-    //     <option value='no'>Rejected</option>
-    //   </select>
-    //   {filteredSongs}
-    // </div>
-    <div>
-      <select
-        onChange={(e) => setMyValue(e.target.value)}
-        defaultValue={myValue}
-      >
-        {options.map((option, idx) => (
-          <option key={idx}>{option}</option>
-        ))}
-      </select>
-
-      <h2>{filteredSongs}</h2>
-      <h2>{selectedSongs}</h2>
-    </div>
+    <>
+      <div>
+        <select
+          onChange={(e) => {
+            setMyValue(e.target.value);
+            filterSongs(e.target.value);
+          }}
+        >
+          {options.map((option, idx) => (
+            <option key={idx}>{option}</option>
+          ))}
+        </select>
+        <h4>{filteredSongs}</h4>
+      </div>
+    </>
   );
 }
 
