@@ -7,8 +7,9 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 
 function Filter({ data }) {
-  const options = ["Love Em", "Hate Em"];
-  const [myValue, setMyValue] = useState(options[0]);
+  //   const options = ["Love Em", "Hate Em"];
+  //   const [myValue, setMyValue] = useState(options[0]);
+  const [toggle, setToggle] = useState(false);
 
   const selectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
@@ -24,29 +25,29 @@ function Filter({ data }) {
     }
   });
 
-  const [filteredSongs, setFilteredSongs] = useState(selectedSongs);
-
   const rejectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
     if (rating === "Not at my wedding!!!") {
       return (
         <div key={id}>
           <p>
-            {artist} - {title}
+            {artist} : {title}
           </p>
         </div>
       );
     }
   });
 
-  const filterSongs = (value) => {
-    if (value === "Love Em") {
-      setFilteredSongs(selectedSongs);
-    }
-    if (value === "Hate Em") {
-      setFilteredSongs(rejectedSongs);
-    }
-  };
+  const [filteredSongs, setFilteredSongs] = useState(selectedSongs);
+
+  //   const filterSongs = (value) => {
+  //     if (value === "Love Em") {
+  //       setFilteredSongs(selectedSongs);
+  //     }
+  //     if (value === "Hate Em") {
+  //       setFilteredSongs(rejectedSongs);
+  //     }
+  //   };
 
   return (
     <>
@@ -70,14 +71,31 @@ function Filter({ data }) {
                 <option key={idx}>{option}</option>
               ))}
             </select> */}
-            <Button
-              variant='contained'
-              color='success'
-              className='yes'
-              //   onClick={handleYeah}
-            >
-              Love Em!
-            </Button>
+            {!toggle ? (
+              <Button
+                variant='contained'
+                color='success'
+                className='yes'
+                onClick={() => {
+                  setFilteredSongs(rejectedSongs);
+                  setToggle(true);
+                }}
+              >
+                Love Em!
+              </Button>
+            ) : (
+              <Button
+                variant='contained'
+                color='error'
+                className='no'
+                onClick={() => {
+                  setFilteredSongs(selectedSongs);
+                  setToggle(false);
+                }}
+              >
+                Hate Em!
+              </Button>
+            )}
             <h4>{filteredSongs}</h4>
           </div>
         </AccordionDetails>
