@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Video from "./Video";
 import AddVideo from "./AddVideo";
-import Filter from "./Filter";
+import Filter from './Filter';
 
 function App() {
   const [data, setData] = useState([]);
@@ -21,12 +21,12 @@ function App() {
           position: "absolute",
           top: 20,
           right: 200,
-          width: '100px'
+          width: "100px",
         }}
       >
-        <Filter data={data} setData={setData}/>
       </div>
       <Video data={data} setData={setData} />
+      <Filter data={data} />
       {/* <ToastContainer /> */}
     </div>
   );
