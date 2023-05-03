@@ -1,39 +1,38 @@
 import { useState } from "react";
 
 function Filter({ data }) {
-  //   const [filteredSongs, setFilteredSongs] = useState(null);
-
-  //   const filterByRating = data.map((song) => {
-  //     const { id, artist, title, link, rating } = song;
-  //     if (rating === "Let's add to the playlist!") {
-  //       setFilteredSongs(
-  //         <div key={id}>
-  //           <p>
-  //             Artist: {artist} - Song: {title}
-  //           </p>
-  //         </div>
-  //       );
-  //     }
-  //     if (rating === "Not at my wedding!!!") {
-  //       setFilteredSongs(
-  //         <div key={id}>
-  //           <p>
-  //             Artist: {artist} - Song: {title}
-  //           </p>
-  //         </div>
-  //       );
-  //     }
-  //   });
   const options = ["Filter Songs By Rating", "The Good Stuff", "Rejected"];
   const [myValue, setMyValue] = useState(options[0]);
   const [filteredSongs, setFilteredSongs] = useState(null);
 
-  //   const filterSongs = () => data.map((song) => {
-  //     const { id, artist, title, link, rating } = song;
-  //   });
+  //   const positiveSongs = (data) => {
+  //       return data.filter(rating === "Let's add to the playlist!")
+  //   }
 
-  const positiveSongs = data.map((song) => {
+  const selectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
+    if (rating === "Let's add to the playlist!") {
+      return (
+        <div key={id}>
+          <p>
+            {artist} - {title}
+          </p>
+        </div>
+      );
+    }
+  });
+
+  const rejectedSongs = data.map((song) => {
+    const { id, artist, title, link, rating } = song;
+    if (rating === "Rejected") {
+      return (
+        <div key={id}>
+          <p>
+            {artist} - {title}
+          </p>
+        </div>
+      );
+    }
   });
 
   const testFilter = () => {
@@ -41,10 +40,10 @@ function Filter({ data }) {
       setFilteredSongs(null);
     }
     if (myValue === "The Good Stuff") {
-      setFilteredSongs("The Good Songs!");
+      setFilteredSongs(selectedSongs);
     }
     if (myValue === "Rejected") {
-      setFilteredSongs("The Bad Songs");
+      setFilteredSongs(rejectedSongs);
     }
   };
 
@@ -66,8 +65,9 @@ function Filter({ data }) {
           <option key={idx}>{option}</option>
         ))}
       </select>
-      
+
       <h2>{filteredSongs}</h2>
+      <h2>{selectedSongs}</h2>
     </div>
   );
 }
