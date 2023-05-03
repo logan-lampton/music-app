@@ -107,7 +107,7 @@ function Rating({ id, rating, setData }) {
       </Box>
       <div
         className='approval'
-        style={{ position: "absolute", top: "25%", left: "0", width: "100%" }}
+        style={{ position: "absolute", top: "33%", left: "0", width: "100%" }}
       >
         {rating && (
           <Stack sx={{ width: "100%" }} spacing={2}>

@@ -4,13 +4,17 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Video from "./Video";
 import AddVideo from "./AddVideo";
-import Filter from './Filter';
+import Filter from "./Filter";
 
 function App() {
   const [data, setData] = useState([]);
 
+  const getVideos = async () => {
+    await axios.get("/api/videos").then((response) => setData(response.data));
+  };
+
   useEffect(() => {
-    axios.get("/api/videos").then((response) => setData(response.data));
+    getVideos();
   }, []);
 
   return (
@@ -23,8 +27,7 @@ function App() {
           right: 200,
           width: "100px",
         }}
-      >
-      </div>
+      ></div>
       <Video data={data} setData={setData} />
       <Filter data={data} />
       {/* <ToastContainer /> */}
