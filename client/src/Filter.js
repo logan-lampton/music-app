@@ -1,9 +1,14 @@
 import { useState } from "react";
 
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Button from "@mui/material/Button";
+
 function Filter({ data }) {
-  const options = ["Filter Songs By Rating", "Love Em", "Hate Em"];
+  const options = ["Love Em", "Hate Em"];
   const [myValue, setMyValue] = useState(options[0]);
-  const [filteredSongs, setFilteredSongs] = useState([]);
 
   const selectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
@@ -19,6 +24,8 @@ function Filter({ data }) {
     }
   });
 
+  const [filteredSongs, setFilteredSongs] = useState(selectedSongs);
+
   const rejectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
     if (rating === "Not at my wedding!!!") {
@@ -33,9 +40,6 @@ function Filter({ data }) {
   });
 
   const filterSongs = (value) => {
-    if (value === "Filter Songs By Rating") {
-      setFilteredSongs([]);
-    }
     if (value === "Love Em") {
       setFilteredSongs(selectedSongs);
     }
@@ -46,19 +50,38 @@ function Filter({ data }) {
 
   return (
     <>
-      <div>
-        <select
-          onChange={(e) => {
-            setMyValue(e.target.value);
-            filterSongs(e.target.value);
-          }}
+      <Accordion>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls='panel1a-content'
+          id='panel1a-header'
         >
-          {options.map((option, idx) => (
-            <option key={idx}>{option}</option>
-          ))}
-        </select>
-        <h4>{filteredSongs}</h4>
-      </div>
+          <h2>Show Songs By Rating</h2>
+        </AccordionSummary>
+        <AccordionDetails>
+          <div>
+            {/* <select
+              onChange={(e) => {
+                setMyValue(e.target.value);
+                filterSongs(e.target.value);
+              }}
+            >
+              {options.map((option, idx) => (
+                <option key={idx}>{option}</option>
+              ))}
+            </select> */}
+            <Button
+              variant='contained'
+              color='success'
+              className='yes'
+              //   onClick={handleYeah}
+            >
+              Love Em!
+            </Button>
+            <h4>{filteredSongs}</h4>
+          </div>
+        </AccordionDetails>
+      </Accordion>
     </>
   );
 }
