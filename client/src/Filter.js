@@ -9,7 +9,11 @@ import Button from "@mui/material/Button";
 function Filter({ data }) {
   //   const options = ["Love Em", "Hate Em"];
   //   const [myValue, setMyValue] = useState(options[0]);
-  const [toggle, setToggle] = useState(false);
+  //   const [toggle, setToggle] = useState(false);
+
+  const [buttonA, setButtonA] = useState(true);
+  const [buttonB, setButtonB] = useState(false);
+  const [buttonC, setButtonC] = useState(false);
 
   const selectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
@@ -27,6 +31,19 @@ function Filter({ data }) {
   const rejectedSongs = data.map((song) => {
     const { id, artist, title, link, rating } = song;
     if (rating === "Not at my wedding!!!") {
+      return (
+        <div key={id}>
+          <p>
+            {artist} : {title}
+          </p>
+        </div>
+      );
+    }
+  });
+
+  const notRated = data.map((song) => {
+    const { id, artist, title, link, rating } = song;
+    if (!rating) {
       return (
         <div key={id}>
           <p>
@@ -70,38 +87,53 @@ function Filter({ data }) {
                 <option key={idx}>{option}</option>
               ))}
             </select> */}
-            {!toggle ? (
+            {buttonA && (
               <Button
                 variant='contained'
                 color='success'
                 className='yes'
                 onClick={() => {
                   setFilteredSongs(rejectedSongs);
-                  setToggle(true);
+                  setButtonA(false);
+                  setButtonB(true);
                 }}
               >
                 Love Em!
               </Button>
-            ) : (
+            )}
+            {buttonB && (
               <Button
                 variant='contained'
                 color='error'
                 className='no'
                 onClick={() => {
-                  setFilteredSongs(selectedSongs);
-                  setToggle(false);
+                  setFilteredSongs(notRated);
+                  setButtonB(false);
+                  setButtonC(true);
                 }}
               >
                 Hate Em!
               </Button>
             )}
-            {
-              (filteredSongs.length <= 0 ? (
-                <h4>{selectedSongs}</h4>
-              ) : (
-                <h4>{filteredSongs}</h4>
-              ))
-            }
+            {buttonC && (
+              <Button
+                variant='contained'
+                color='info'
+                className='no'
+                onClick={() => {
+                  setFilteredSongs(selectedSongs);
+                  setButtonC(false);
+                  setButtonA(true);
+                }}
+              >
+                Still Need to Rate
+              </Button>
+            )}
+            {filteredSongs.length <= 0 ? (
+              <h4>{selectedSongs}</h4>
+            ) : (
+              <h4>{filteredSongs}</h4>
+            )}
           </div>
         </AccordionDetails>
       </Accordion>
