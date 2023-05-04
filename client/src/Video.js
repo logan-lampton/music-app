@@ -1,5 +1,5 @@
 import { AspectRatio } from "react-aspect-ratio";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Rating from "./Rating";
 import * as React from "react";
 import Stack from "@mui/material/Stack";
@@ -35,7 +35,7 @@ function Video({ data, setData }) {
         <h2>{artist}</h2>
         <h3>{title}</h3>
         <AspectRatio ratio='16/9' style={{ maxWidth: "1000px" }}>
-          <iframe src={link} allow='autoplay' allowFullScreen />
+          <iframe title='myFrame' src={link} allow='autoplay' allowFullScreen />
         </AspectRatio>
         <Stack spacing={2} direction='row' className='video-buttons'>
           <Button variant='contained' onClick={prevVideo}>

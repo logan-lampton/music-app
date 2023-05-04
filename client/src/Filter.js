@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -16,7 +16,7 @@ function Filter({ data }) {
   const [buttonC, setButtonC] = useState(false);
 
   const selectedSongs = data.map((song) => {
-    const { id, artist, title, link, rating } = song;
+    const { id, artist, title, rating } = song;
     if (rating === "Let's add to the playlist!") {
       return (
         <div key={id}>
@@ -29,7 +29,7 @@ function Filter({ data }) {
   });
 
   const rejectedSongs = data.map((song) => {
-    const { id, artist, title, link, rating } = song;
+    const { id, artist, title, rating } = song;
     if (rating === "Not at my wedding!!!") {
       return (
         <div key={id}>
@@ -42,7 +42,7 @@ function Filter({ data }) {
   });
 
   const notRated = data.map((song) => {
-    const { id, artist, title, link, rating } = song;
+    const { id, artist, title, rating } = song;
     if (!rating) {
       return (
         <div key={id}>
