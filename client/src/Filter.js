@@ -25,6 +25,8 @@ function Filter({ data }) {
           </p>
         </div>
       );
+    } else {
+      return null;
     }
   });
 
@@ -38,6 +40,8 @@ function Filter({ data }) {
           </p>
         </div>
       );
+    } else {
+      return null;
     }
   });
 
@@ -51,6 +55,8 @@ function Filter({ data }) {
           </p>
         </div>
       );
+    } else {
+      return null;
     }
   });
 
