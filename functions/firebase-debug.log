@@ -1,0 +1,157 @@
+[debug] [2023-05-06T17:17:18.296Z] ----------------------------------------------------------------------
+[debug] [2023-05-06T17:17:18.298Z] Command:       /home/logan/.nvm/versions/node/v18.16.0/bin/node /home/logan/.nvm/versions/node/v18.16.0/bin/firebase emulators:start --only functions
+[debug] [2023-05-06T17:17:18.298Z] CLI Version:   11.30.0
+[debug] [2023-05-06T17:17:18.299Z] Platform:      linux
+[debug] [2023-05-06T17:17:18.299Z] Node Version:  v18.16.0
+[debug] [2023-05-06T17:17:18.300Z] Time:          Sat May 06 2023 13:17:18 GMT-0400 (Eastern Daylight Time)
+[debug] [2023-05-06T17:17:18.300Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-05-06T17:17:18.414Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-05-06T17:17:18.414Z] > authorizing via signed-in user (lampton.logan@gmail.com)
+[info] i  emulators: Starting emulators: functions {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: functions"}}
+[debug] [2023-05-06T17:17:18.420Z] assigned listening specs for emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}]},"metadata":{"message":"assigned listening specs for emulators"}}
+[debug] [2023-05-06T17:17:18.429Z] [hub] writing locator at /tmp/hub-music-app-1c0e1.json
+[debug] [2023-05-06T17:17:18.444Z] late-assigned ports for functions and eventarc emulators {"user":{"hub":[{"address":"127.0.0.1","family":"IPv4","port":4400}],"ui":[{"address":"127.0.0.1","family":"IPv4","port":4000}],"logging":[{"address":"127.0.0.1","family":"IPv4","port":4500}],"functions":[{"address":"127.0.0.1","family":"IPv4","port":5001}],"eventarc":[{"address":"127.0.0.1","family":"IPv4","port":9299}]},"metadata":{"message":"late-assigned ports for functions and eventarc emulators"}}
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: auth, firestore, database, hosting, pubsub, storage {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mauth, firestore, database, hosting, pubsub, storage\u001b[22m"}}
+[debug] [2023-05-06T17:17:18.449Z] defaultcredentials: writing to file /home/logan/.config/firebase/lampton_logan_gmail.com_application_default_credentials.json
+[debug] [2023-05-06T17:17:18.452Z] Setting GAC to /home/logan/.config/firebase/lampton_logan_gmail.com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /home/logan/.config/firebase/lampton_logan_gmail.com_application_default_credentials.json"}}
+[debug] [2023-05-06T17:17:18.453Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/music-app-1c0e1/adminSdkConfig [none]
+[debug] [2023-05-06T17:17:18.818Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/music-app-1c0e1/adminSdkConfig 200
+[debug] [2023-05-06T17:17:18.819Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/music-app-1c0e1/adminSdkConfig {"projectId":"music-app-1c0e1","storageBucket":"music-app-1c0e1.appspot.com"}
+[debug] [2023-05-06T17:17:18.864Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2023-05-06T17:17:18.864Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2023-05-06T17:17:18.864Z] Starting Emulator UI with command {"binary":"node","args":["/home/logan/.cache/firebase/emulators/ui-v1.11.6/server/server.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/home/logan/.cache/firebase/emulators/ui-v1.11.6/server/server.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2023-05-06T17:17:18.964Z] Web / API server started at 127.0.0.1:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at 127.0.0.1:4000\n"}}
+[info] i  functions: Watching "/home/logan/Development/code/phase-6/music-app/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/home/logan/Development/code/phase-6/music-app/functions\" for Cloud Functions..."}}
+[debug] [2023-05-06T17:17:19.153Z] Validating nodejs source
+[debug] [2023-05-06T17:17:22.957Z] > [functions] package.json contents: {
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "lint": "eslint .",
+    "serve": "firebase emulators:start --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "16"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^11.5.0",
+    "firebase-functions": "^4.2.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.15.0",
+    "eslint-config-google": "^0.14.0",
+    "firebase-functions-test": "^3.0.0"
+  },
+  "private": true
+}
+[debug] [2023-05-06T17:17:22.958Z] Building nodejs source
+[debug] [2023-05-06T17:17:22.958Z] Failed to find version of module node: reached end of search path /home/logan/Development/code/phase-6/music-app/functions/node_modules
+[warn] ⚠  functions: Your requested "node" version "16" doesn't match your global version "18". Using node@18 from host. 
+[debug] [2023-05-06T17:17:22.960Z] Could not find functions.yaml. Must use http discovery
+[debug] [2023-05-06T17:17:22.989Z] Found firebase-functions binary at '/home/logan/Development/code/phase-6/music-app/functions/node_modules/.bin/firebase-functions'
+[debug] [2023-05-06T17:17:23.106Z] Serving at port 8788
+
+[debug] [2023-05-06T17:17:23.262Z] Got response from /__/functions.yaml {"endpoints":{"app":{"platform":"gcfv1","availableMemoryMb":null,"timeoutSeconds":null,"minInstances":null,"maxInstances":null,"ingressSettings":null,"serviceAccountEmail":null,"vpc":null,"httpsTrigger":{},"entryPoint":"app"}},"specVersion":"v1alpha1","requiredAPIs":[]}
+[debug] [2023-05-06T17:17:23.269Z] shutdown requested via /__/quitquitquit
+
+[info] ✔  functions: Loaded functions definitions from source: app. {"metadata":{"emulator":{"name":"functions"},"message":"Loaded functions definitions from source: app."}}
+[info] ✔  functions[us-central1-app]: http function initialized (http://127.0.0.1:5001/music-app-1c0e1/us-central1/app). {"metadata":{"emulator":{"name":"functions"},"message":"\u001b[1mhttp\u001b[22m function initialized (http://127.0.0.1:5001/music-app-1c0e1/us-central1/app)."}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://127.0.0.1:4000/               │
+└─────────────────────────────────────────────────────────────┘
+
+┌───────────┬────────────────┬─────────────────────────────────┐
+│ Emulator  │ Host:Port      │ View in Emulator UI             │
+├───────────┼────────────────┼─────────────────────────────────┤
+│ Functions │ 127.0.0.1:5001 │ http://127.0.0.1:4000/functions │
+└───────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at 127.0.0.1:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2023-05-06T17:18:00.702Z] Functions emulator received unknown request at path /hello-world
+[debug] [2023-05-06T17:19:31.427Z] Functions emulator received unknown request at path /music-app/us-central1/app/hello-world/
+[debug] [2023-05-06T17:19:34.801Z] Functions emulator received unknown request at path /music-app/us-central1/app/hello-world
+[debug] [2023-05-06T17:19:52.526Z] [work-queue] {"queuedWork":["/music-app-1c0e1/us-central1/app-2023-05-06T17:19:52.525Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:19:52.526Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/music-app-1c0e1/us-central1/app-2023-05-06T17:19:52.525Z"],"workRunningCount":1}
+[debug] [2023-05-06T17:19:52.527Z] Accepted request GET /music-app-1c0e1/us-central1/app --> us-central1-app
+[debug] [2023-05-06T17:19:52.531Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-05-06T17:19:52.532Z] [functions] Got req.url=/music-app-1c0e1/us-central1/app, mapping to path=/ {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/music-app-1c0e1/us-central1/app, mapping to path=/"}}
+[debug] [2023-05-06T17:19:52.543Z] [worker-pool] addWorker(us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(us-central1-app)"}}
+[debug] [2023-05-06T17:19:52.544Z] [worker-pool] Adding worker with key us-central1-app, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key us-central1-app, total=1"}}
+[debug] [2023-05-06T17:19:53.185Z] [runtime-status] [32526] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.8.0","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.8.0\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2023-05-06T17:19:53.186Z] [runtime-status] [32526] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.3.1","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.3.1\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-05-06T17:19:53.187Z] [runtime-status] [32526] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2023-05-06T17:19:53.187Z] [runtime-status] [32526] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.3.1","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.3.1\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-05-06T17:19:53.313Z] [runtime-status] [32526] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Checked functions.config() {\"config\":{}}"}}
+[debug] [2023-05-06T17:19:53.313Z] [runtime-status] [32526] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"4.3.1","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"4.3.1\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js\"}}"}}
+[debug] [2023-05-06T17:19:53.314Z] [runtime-status] [32526] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.3.1","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.3.1\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-05-06T17:19:53.314Z] [runtime-status] [32526] Resolved module firebase-admin {"declared":true,"installed":true,"version":"11.8.0","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"11.8.0\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2023-05-06T17:19:53.316Z] [runtime-status] [32526] Resolved module firebase-functions {"declared":true,"installed":true,"version":"4.3.1","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"4.3.1\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-functions/lib/v1/index.js\"}"}}
+[debug] [2023-05-06T17:19:53.316Z] [runtime-status] [32526] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"11.8.0","resolution":"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"11.8.0\",\"resolution\":\"/home/logan/Development/code/phase-6/music-app/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2023-05-06T17:19:53.369Z] [runtime-status] [32526] Functions runtime initialized. {"cwd":"/home/logan/Development/code/phase-6/music-app/functions","node_version":"18.16.0"} {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Functions runtime initialized. {\"cwd\":\"/home/logan/Development/code/phase-6/music-app/functions\",\"node_version\":\"18.16.0\"}"}}
+[debug] [2023-05-06T17:19:53.369Z] [runtime-status] [32526] Listening to port: /tmp/fire_emu_4aa2677c2fc43f6b.sock {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[runtime-status] [32526] Listening to port: /tmp/fire_emu_4aa2677c2fc43f6b.sock"}}
+[debug] [2023-05-06T17:19:53.463Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE"}}
+[debug] [2023-05-06T17:19:53.464Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2023-05-06T17:19:53.465Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY"}}
+[debug] [2023-05-06T17:19:53.476Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 11.5745ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 11.5745ms"}}
+[debug] [2023-05-06T17:19:53.477Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE"}}
+[debug] [2023-05-06T17:19:53.477Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-05-06T17:19:53.478Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-05-06T17:19:53.478Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:19:59.429Z] [work-queue] {"queuedWork":["/music-app-1c0e1/us-central1/app/helloworld-2023-05-06T17:19:59.429Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:19:59.429Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/music-app-1c0e1/us-central1/app/helloworld-2023-05-06T17:19:59.429Z"],"workRunningCount":1}
+[debug] [2023-05-06T17:19:59.429Z] Accepted request GET /music-app-1c0e1/us-central1/app/helloworld --> us-central1-app
+[debug] [2023-05-06T17:19:59.433Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-05-06T17:19:59.433Z] [functions] Got req.url=/music-app-1c0e1/us-central1/app/helloworld, mapping to path=/helloworld {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/music-app-1c0e1/us-central1/app/helloworld, mapping to path=/helloworld"}}
+[debug] [2023-05-06T17:19:59.433Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2023-05-06T17:19:59.434Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY"}}
+[debug] [2023-05-06T17:19:59.439Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 5.0425ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 5.0425ms"}}
+[debug] [2023-05-06T17:19:59.440Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE"}}
+[debug] [2023-05-06T17:19:59.440Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-05-06T17:19:59.440Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-05-06T17:19:59.440Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:20:05.087Z] [work-queue] {"queuedWork":["/music-app-1c0e1/us-central1/app/hello-world-2023-05-06T17:20:05.086Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:20:05.087Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/music-app-1c0e1/us-central1/app/hello-world-2023-05-06T17:20:05.086Z"],"workRunningCount":1}
+[debug] [2023-05-06T17:20:05.087Z] Accepted request GET /music-app-1c0e1/us-central1/app/hello-world --> us-central1-app
+[debug] [2023-05-06T17:20:05.091Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-05-06T17:20:05.091Z] [functions] Got req.url=/music-app-1c0e1/us-central1/app/hello-world, mapping to path=/hello-world {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/music-app-1c0e1/us-central1/app/hello-world, mapping to path=/hello-world"}}
+[debug] [2023-05-06T17:20:05.092Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2023-05-06T17:20:05.092Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY"}}
+[debug] [2023-05-06T17:20:05.099Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 7.3938ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 7.3938ms"}}
+[debug] [2023-05-06T17:20:05.100Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE"}}
+[debug] [2023-05-06T17:20:05.101Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-05-06T17:20:05.101Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-05-06T17:20:05.101Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:20:05.346Z] Functions emulator received unknown request at path /favicon.ico
+[debug] [2023-05-06T17:20:22.189Z] [work-queue] {"queuedWork":["/music-app-1c0e1/us-central1/app/hello-world-2023-05-06T17:20:22.189Z"],"queueLength":1,"runningWork":[],"workRunningCount":0}
+[debug] [2023-05-06T17:20:22.189Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":["/music-app-1c0e1/us-central1/app/hello-world-2023-05-06T17:20:22.189Z"],"workRunningCount":1}
+[debug] [2023-05-06T17:20:22.189Z] Accepted request GET /music-app-1c0e1/us-central1/app/hello-world --> us-central1-app
+[debug] [2023-05-06T17:20:22.192Z] [functions] Runtime ready! Sending request! {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Runtime ready! Sending request!"}}
+[debug] [2023-05-06T17:20:22.193Z] [functions] Got req.url=/music-app-1c0e1/us-central1/app/hello-world, mapping to path=/hello-world {"metadata":{"emulator":{"name":"functions"},"message":"[functions] Got req.url=/music-app-1c0e1/us-central1/app/hello-world, mapping to path=/hello-world"}}
+[debug] [2023-05-06T17:20:22.193Z] [worker-pool] submitRequest(triggerId=us-central1-app) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitRequest(triggerId=us-central1-app)"}}
+[info] i  functions: Beginning execution of "us-central1-app" {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Beginning execution of \"us-central1-app\""}}
+[debug] [2023-05-06T17:20:22.193Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: BUSY"}}
+[debug] [2023-05-06T17:20:22.199Z] Finishing up request with event=pause {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=pause"}}
+[info] i  functions: Finished "us-central1-app" in 5.6102ms {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finished \"us-central1-app\" in 5.6102ms"}}
+[debug] [2023-05-06T17:20:22.200Z] [worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"[worker-us-central1-app-6ed2f8a0-f1de-4fe4-8730-9b3a16dfa72f]: IDLE"}}
+[debug] [2023-05-06T17:20:22.200Z] Finishing up request with event=finish {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=finish"}}
+[debug] [2023-05-06T17:20:22.200Z] Finishing up request with event=close {"metadata":{"emulator":{"name":"functions"},"function":{"name":"us-central1-app"},"extension":{},"message":"Finishing up request with event=close"}}
+[debug] [2023-05-06T17:20:22.200Z] [work-queue] {"queuedWork":[],"queueLength":0,"runningWork":[],"workRunningCount":0}
