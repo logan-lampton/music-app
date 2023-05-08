@@ -86,13 +86,21 @@ app.get("/api/read", (req, res) => {
   })();
 });
 
-// // Create and deploy your first functions
-// // https://firebase.google.com/docs/functions/get-started
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//   functions.logger.info("Hello logs!", {structuredData: true});
-//   response.send("Hello from Firebase!");
-// });
+// Add and delete reviews via patch
+app.patch("/api/update/:id", (req, res) => {
+  (async () => {
+    try {
+      const document = db.collection("videos").doc(req.params.id);
+      await document.update({
+        rating: req.body.rating,
+      });
+      return res.status(200).send();
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send(error);
+    }
+  })();
+});
 
 // Export the api to Firebase Cloud Functions
 exports.app = functions.https.onRequest(app);
