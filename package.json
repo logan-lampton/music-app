@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "server": "node server/index.js",
     "client": "npm start --prefix client",
-    "netlify-build": "CI= react-scripts build",
+    "netlify-build": "CI= react-scripts build --prefix client",
     "build": "react-scripts build",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },

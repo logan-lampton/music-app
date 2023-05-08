@@ -44,7 +44,7 @@ app.get("/hello-world", (req, res) => {
 });
 
 // GET specific id
-app.get("/api/read/:id", (req, res) => {
+app.get("/api/videos/:id", (req, res) => {
   (async () => {
     try {
       const document = db.collection("videos").doc(req.params.id);
@@ -60,7 +60,7 @@ app.get("/api/read/:id", (req, res) => {
 });
 
 // GET all
-app.get("/api/read", (req, res) => {
+app.get("/api/videos", (req, res) => {
   (async () => {
     try {
       let query = db.collection("videos");
@@ -87,12 +87,12 @@ app.get("/api/read", (req, res) => {
 });
 
 // Add and delete reviews via patch
-app.patch("/api/update/:id", (req, res) => {
+app.push("/api/videos/:id", (req, res) => {
   (async () => {
     try {
       const document = db.collection("videos").doc(req.params.id);
       await document.update({
-        rating: req.body.rating,
+        "rating": req.body.rating,
       });
       return res.status(200).send();
     } catch (error) {
