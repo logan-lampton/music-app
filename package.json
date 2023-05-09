@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "node index.js"
+    "server": "node server/index.js",
+    "client": "npm start --prefix client",
+    "netlify-build": "CI= react-scripts build",
+    "build": "react-scripts build",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",

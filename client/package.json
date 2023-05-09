@@ -21,6 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "client": "npm start --prefix client",
+    "server": "node server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "proxy": "http://localhost:3001",
